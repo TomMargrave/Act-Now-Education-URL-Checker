@@ -1,6 +1,6 @@
 # Act-Now-Education-URL-Checker
 A Python tool to extract links from an HTML table, check if they are valid or broken, and save the results to CSV and Excel files. No coding experience required—just copy, run, and review the report.
-chg nothing
+
 
 
 # ActNowEd URL Table Extractor & Validator
@@ -135,7 +135,7 @@ Redirected HTTP: 20 4.42%
 **What this means:**
 - **Total URLs**: The number of links checked.
 - **Valid URLs**: Links that work and return a successful response.
-- **Redirected**: Links that automatically send you to a different address.
+- **Redirected**: Links that automatically send you to a different address.  ssvsss
 - **Broken URLs**: Links that do not work or return an error.
 - **Redirected HTTP**: Links that were redirected from HTTP to HTTPS.
 
