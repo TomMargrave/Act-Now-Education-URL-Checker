@@ -1,0 +1,27 @@
+@startuml
+actor User
+participant "parse_table_to_csv" as Parser
+participant "validate_urls_from_csv" as Validator
+participant "check_url_exists" as Checker
+database "element.html" as HTML
+database "urls.csv" as CSV
+database "url_validation_report.xlsx" as Excel
+
+User -> Parser: Run script
+Parser -> HTML: Read HTML table
+Parser -> CSV: Write URLs to CSV
+Parser -> User: Success/Failure
+
+alt Table found
+    Parser -> Validator: Start validation
+    Validator -> CSV: Read URLs
+    loop For each URL
+        Validator -> Checker: Check URL
+        Checker -> Validator: Status, code, etc.
+    end
+    Validator -> Excel: Write results (all, broken, valid)
+    Validator -> User: Print summary
+else No table found
+    Parser -> User: Print error
+end
+@enduml
